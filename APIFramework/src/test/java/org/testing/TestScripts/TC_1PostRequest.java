@@ -16,7 +16,7 @@ import io.restassured.response.Response;
 
 public class TC_1PostRequest {
 	
-	static String responseID;
+	static String responseId;
 	
 	@Test
 	public void postRequest() throws FileNotFoundException, IOException {
@@ -26,7 +26,7 @@ public class TC_1PostRequest {
 		HTTPMethods postMethod=new HTTPMethods(loadURIPropertiesFile);
 		String bodyData=VariableReplacement.replaceVariable(inputData, "id", randomValueGenerator.generateRandomValue());
 		Response rs=postMethod.postMethod("QA_URI_Automation", bodyData,null);
-		responseID=jsonParsingUsingOrgJson.parseResponseAndgetKeyValue(rs.asString(), "id");
+		responseId=jsonParsingUsingOrgJson.parseResponseAndgetKeyValue(rs.asString(), "id");
 	}
 	
 }
